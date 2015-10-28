@@ -167,7 +167,7 @@ var hashgrid = function(set) {
 	overlay.append(gridLines);
 
 	// vertical grid
-	overlay.append($('<div class="vert-container"></div>'));
+	overlay.append($('<div class="vert-container"><div class="vert-inner"></div></div>'));
 	overlayVert = overlay.children('.vert-container');
 	gridWidth = overlay.width();
 	overlayVert.css({width: gridWidth, position: 'absolute', top: 0});
@@ -180,8 +180,8 @@ var hashgrid = function(set) {
 	for (i = 0; i < 60; i++) {
 		gridLines += '<div class="vert">&nbsp;</div>';
 	}
-	overlayVert.append(gridLines);
-	overlayVert.children()
+	overlayVert.children('.vert-inner').append(gridLines);
+	overlayVert.children('.vert-inner').children()
 		.height(pageHeight)
 		.css({ display: 'inline-block' });
 
@@ -252,7 +252,7 @@ var hashgrid = function(set) {
 		overlay.show();
 		overlayVert.css({width: overlay.width()});
 		// hide any vertical blocks that aren't at the top of the viewport
-		overlayVert.children('.vert').each(function () {
+		overlayVert.find('.vert').each(function () {
 			var vCol = $(this);
 			vCol.css('display','inline-block');
 			if (vCol.offset().top > vCol.parent().offset().top) {
