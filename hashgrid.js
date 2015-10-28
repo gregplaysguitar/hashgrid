@@ -174,9 +174,10 @@ var hashgrid = function(set) {
 	overlayVert.append('<div class="vert first-line">&nbsp;</div>');
 
 	// 30 is an arbitrarily large number...
+	// 30 is not enough
 	// can't calculate the margin width properly
 	gridLines = '';
-	for (i = 0; i < 30; i++) {
+	for (i = 0; i < 60; i++) {
 		gridLines += '<div class="vert">&nbsp;</div>';
 	}
 	overlayVert.append(gridLines);
